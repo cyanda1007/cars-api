@@ -7,39 +7,57 @@
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
     >
-      integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacR0I4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="crossorigin="anonymous"referrerpolicy="no-referrer"
+      integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"
+    >
+      integrity="sha512-0qU9M9jfqPw6FKkPafM3gy2CBAvUWnYVOfNPDYKVuRTel1PrciTj+a9P3loJB+j0QmN2Y0JYQmkBBS8W+mbezg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
+    <a href="filter-widget.html"> Car Api Filter Widget</a>
+    <script class="colorsTemplate" type="text/template-x">
+      <ul> {{#each colors}} <li>{{this}}</li> {{/each}} </ul>
+    </script>
+    <script class="brandsTemplate" type="text/template-x">
+      <ul> {{#each brands}} <li>{{this}}</li> {{/each}} </ul>
+    </script>
     <script class="vehicleTemplate" type="text/template-x">
-      {{#each cars}}
-      <tr>
-          <td>{{make}}</td>
-          <td>{{model}}</td>
-          <td>{{color}}</td>
-      </tr>
-      {{/each}}
+      <table>
+         <thead>
+           <tr>
+             <th>Make</th>
+             <th>Models</th>
+               <th>Color</th>
+               <th>price</th>
+              <th>reg_number</th>
+            </tr>
+             </thead>
+              <tbody class="cars">
+                 <!-- Put data from the API in here -->
+                </tbody> {{#each cars}} <tr>
+                  <td>{{this.make}}</td>
+
+                    <td>{{this.model}}</td>
+
+                      <td>{{this.color}}</td>
+
+                         <td>R{{this.price}}</td>
+                          <td>{{this.reg_number}}</td>
+                        </tr> {{/each}}
+                      </table>
     </script>
     <script src="index.js" defer></script>
+    sc
   </head>
   <body>
     <h1>Cars API app</h1>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Make</th>
-          <th>Model</th>
-          <th>Color</th>
-        </tr>
-      </thead>
-      <tbody class="cars"></tbody>
-    </table>
-    <h2></h2>
-    <div class="allCars"></div>
-    <h2></h2>
-    <div class="allColors"></div>
-    <h2></h2>
-    <div class="allBrand"></div>
+    <h2>Cars</h2>
+    <div class="cars"></div>
+    <h2>Colors</h2>
+    <div class="colors"></div>
+    <h2>Brand</h2>
+    <div class="brands"></div>
   </body>
 </html>
